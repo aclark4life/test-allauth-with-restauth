@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "allauth",
+    "allauth.account",
 ]
 
 MIDDLEWARE = [
@@ -188,3 +190,4 @@ REST_FRAMEWORK = {
 }
 LOGIN_REDIRECT_URL = "/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+AUTHENTICATION_BACKENDS = ("allauth.account.auth_backends.AuthenticationBackend",)
