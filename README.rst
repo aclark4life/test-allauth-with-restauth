@@ -1,3 +1,3 @@
-test-all-auth-with-rest-auth
+test-allauth-with-restauth
 ================================================================================
 
