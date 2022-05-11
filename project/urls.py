@@ -52,6 +52,11 @@ urlpatterns = urlpatterns + [
 ]
 
 urlpatterns = urlpatterns + [
+    path("dj-rest-auth/", include("dj_rest_auth.urls")),
+    path("dj-rest-auth/registration/", include("dj_rest_auth.registration.urls")),
+]
+
+urlpatterns = urlpatterns + [
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's page serving mechanism. This should be the last pattern in
     # the list:
