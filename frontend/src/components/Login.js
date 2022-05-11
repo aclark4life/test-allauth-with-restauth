@@ -29,23 +29,27 @@ const Login = () => {
       //Prevent page reload
       event.preventDefault();
 
-      var { uname, pass } = document.forms[0];
+      // var { uname, pass } = document.forms[0];
 
       // Find user login info
-      const userData = database.find((user) => user.username === uname.value);
+      // const userData = database.find((user) => user.username === uname.value);
 
       // Compare user info
-      if (userData) {
-        if (userData.password !== pass.value) {
-          // Invalid password
-          setErrorMessages({ name: "pass", message: errors.pass });
-        } else {
-          setIsSubmitted(true);
-        }
-      } else {
-        // Username not found
-        setErrorMessages({ name: "uname", message: errors.uname });
-      }
+      // if (userData) {
+      //   if (userData.password !== pass.value) {
+      //     // Invalid password
+      //     setErrorMessages({ name: "pass", message: errors.pass });
+      //   } else {
+      //     setIsSubmitted(true);
+      //   }
+      // } else {
+      //   // Username not found
+      //   setErrorMessages({ name: "uname", message: errors.uname });
+      // }
+      fetch('/dj-rest-auth/login/', {'method': 'POST'})
+        .then(response => response.json())
+        .then(data => console.log(data));
+
     };
 
     // Generate JSX code for error message
