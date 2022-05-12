@@ -21,28 +21,28 @@ const Login = ({csrfToken}) => {
       pass: "invalid password"
     };
 
-    const handleSubmit = (event) => {
-      //Prevent page reload
-      event.preventDefault();
+    // const handleSubmit = (event) => {
+    //   //Prevent page reload
+    //   event.preventDefault();
 
-      var { uname, pass } = document.forms[0];
+    //   var { uname, pass } = document.forms[0];
 
-      // Find user login info
-      const userData = database.find((user) => user.username === uname.value);
+    //   // Find user login info
+    //   const userData = database.find((user) => user.username === uname.value);
 
-      // Compare user info
-      if (userData) {
-        if (userData.password !== pass.value) {
-          // Invalid password
-          setErrorMessages({ name: "pass", message: errors.pass });
-        } else {
-          setIsSubmitted(true);
-        }
-      } else {
-        // Username not found
-        setErrorMessages({ name: "uname", message: errors.uname });
-      }
-    };
+    //   // Compare user info
+    //   if (userData) {
+    //     if (userData.password !== pass.value) {
+    //       // Invalid password
+    //       setErrorMessages({ name: "pass", message: errors.pass });
+    //     } else {
+    //       setIsSubmitted(true);
+    //     }
+    //   } else {
+    //     // Username not found
+    //     setErrorMessages({ name: "uname", message: errors.uname });
+    //   }
+    // };
 
     const onSubmit = (event) => {
       //Prevent page reload
