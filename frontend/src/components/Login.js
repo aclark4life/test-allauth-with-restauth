@@ -48,7 +48,10 @@ const Login = ({csrfToken}) => {
       //Prevent page reload
       event.preventDefault();
 
-      fetch('/dj-rest-auth/login/', {'method': 'POST', 'credentials': 'include',
+      // Via pwellever
+      const formdata = new FormData(event.target);
+
+      fetch('/dj-rest-auth/login/', {'method': 'POST', 'credentials': 'include', 'body': formdata,
         headers: {
             Accept: 'application/json',
             'X-Requested-With': 'XMLHttpRequest',
