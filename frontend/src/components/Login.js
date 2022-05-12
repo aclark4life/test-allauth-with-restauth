@@ -56,7 +56,7 @@ const Login = ({csrfToken}) => {
         }}
       )
         .then(response => response.json())
-        .then(data => console.log(csrfToken));
+        .then(data => console.log(data));
 
     };
 
