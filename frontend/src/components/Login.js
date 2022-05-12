@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
-const Login = () => {
+const Login = ({csrfToken}) => {
 
     // React States
     const [errorMessages, setErrorMessages] = useState({});
@@ -42,9 +42,21 @@ const Login = () => {
         // Username not found
         setErrorMessages({ name: "uname", message: errors.uname });
       }
-      // fetch('/dj-rest-auth/login/', {'method': 'POST'})
-      //   .then(response => response.json())
-      //   .then(data => console.log(data));
+    };
+
+    const onSubmit = (event) => {
+      //Prevent page reload
+      event.preventDefault();
+
+      fetch('/dj-rest-auth/login/', {'method': 'POST', 'credentials': 'include',
+        headers: {
+            Accept: 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+            'X-CSRFToken': csrfToken,
+        }}
+      )
+        .then(response => response.json())
+        .then(data => console.log(csrfToken));
 
     };
 
@@ -57,15 +69,15 @@ const Login = () => {
     // JSX code for login form
     const renderForm = (
       <div className="form">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={onSubmit}>
           <div className="input-container">
             <label>Username </label>
-            <input type="text" name="uname" required />
+            <input type="text" name="username" required />
             {renderErrorMessage("uname")}
           </div>
           <div className="input-container">
             <label>Password </label>
-            <input type="password" name="pass" required />
+            <input type="password" name="password" required />
             {renderErrorMessage("pass")}
           </div>
           <div className="button-container">

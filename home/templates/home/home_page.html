@@ -23,7 +23,7 @@
     <div class="d-flex justify-content-start">
       <span class="badge bg-info my-3" data-component="Clock"></span>
     </div>
-    <div data-component="Login"></div>
+    <div data-component="Login" data-csrf-token="{{ csrf_token }}"></div>
     <div class="d-flex justify-content-center">
       <img src="{% static 'vendors/images/webpack.png' %}" class="img-fluid"/>
     </div>
